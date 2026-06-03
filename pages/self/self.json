@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "capture-sheet": "/components/capture-sheet/capture-sheet"
+  },
+  "navigationBarTitleText": "我"
+}

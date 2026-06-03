@@ -1,0 +1,43 @@
+<view wx:if="{{visible}}" class="sheet-layer">
+  <view class="sheet-backdrop" bindtap="close"></view>
+  <view class="sheet">
+    <view class="sheet-handle"></view>
+    <view class="sheet-header">
+      <text class="sheet-title serif">记下这一刻</text>
+      <view class="sheet-close" bindtap="close">×</view>
+    </view>
+    <view class="capture-input-wrap">
+      <textarea
+        class="capture-input"
+        value="{{content}}"
+        placeholder="一句话、一个念头、一点情绪"
+        maxlength="300"
+        auto-height
+        bindinput="onInput"
+      />
+      <view class="input-decor"></view>
+    </view>
+    <view class="intent-grid">
+      <button
+        wx:for="{{intents}}"
+        wx:key="id"
+        class="intent-tile {{activeIntent === item.id ? 'intent-tile-active' : ''}}"
+        data-intent="{{item.id}}"
+        bindtap="chooseIntent"
+      >
+        <view class="intent-icon intent-icon-{{item.icon}}"></view>
+        <text>{{item.label}}</text>
+      </button>
+    </view>
+    <view class="voice-bar">
+      <view class="voice-mic"></view>
+      <text class="voice-text">按住说话，快速记录</text>
+      <view class="voice-wave"></view>
+    </view>
+    <text class="sheet-note">先记住，之后再整理</text>
+    <view class="sheet-actions">
+      <button class="secondary-btn" bindtap="close">稍后整理</button>
+      <button class="save-btn" bindtap="save">保存这一刻</button>
+    </view>
+  </view>
+</view>

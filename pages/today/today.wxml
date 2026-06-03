@@ -1,0 +1,54 @@
+<view class="page today-page">
+  <view class="page-header">
+    <view class="date-block">
+      <view class="date-main serif">
+        <text class="date-num">6</text>
+        <text class="date-num">3</text>
+        <text class="date-week">/ 周三</text>
+      </view>
+      <text class="date-lunar">六月初三</text>
+    </view>
+    <view class="leaf-btn">
+      <view class="leaf-btn-mark"></view>
+    </view>
+  </view>
+
+  <view class="opening">
+    <text class="page-title">今天正在展开。</text>
+    <text class="page-subtitle">微风，适合把注意力放回眼前。</text>
+  </view>
+
+  <view class="thread">
+    <view wx:for="{{dayThread}}" wx:key="id" class="thread-item">
+      <view class="thread-rail">
+        <view class="thread-icon thread-icon-{{item.icon}}"></view>
+        <view wx:if="{{index < dayThread.length - 1}}" class="thread-line"></view>
+      </view>
+      <view class="thread-body">
+        <text class="thread-period">{{item.period}}</text>
+        <text class="thread-title">{{item.title}}</text>
+        <text class="thread-copy">{{item.body}}</text>
+        <text class="script-note script-note-{{item.noteTone}}">{{item.note}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="closing">
+    <view class="closing-head">
+      <view class="closing-sun"></view>
+      <text class="closing-title serif">今晚带走什么？</text>
+    </view>
+    <view class="closing-options">
+      <button
+        wx:for="{{closingOptions}}"
+        wx:key="id"
+        class="closing-chip"
+      >
+        <view class="chip-icon chip-icon-{{item.icon}}"></view>
+        <text>{{item.label}}</text>
+      </button>
+    </view>
+  </view>
+
+  <capture-sheet visible="{{captureVisible}}" bind:close="closeCapture" bind:save="saveMoment" />
+</view>

@@ -1,0 +1,48 @@
+<view class="tab-bar">
+  <view class="tab-bar-inner">
+    <view
+      class="tab-item {{selected === 0 ? 'tab-item-active' : ''}}"
+      data-index="0"
+      bindtap="switchTab"
+    >
+      <view class="tab-icon tab-icon-today {{selected === 0 ? 'tab-icon-active' : ''}}"></view>
+      <text class="tab-label">今天</text>
+      <view wx:if="{{selected === 0}}" class="tab-dot"></view>
+    </view>
+
+    <view
+      class="tab-item {{selected === 1 ? 'tab-item-active' : ''}}"
+      data-index="1"
+      bindtap="switchTab"
+    >
+      <view class="tab-icon tab-icon-echoes {{selected === 1 ? 'tab-icon-active' : ''}}"></view>
+      <text class="tab-label">回声</text>
+      <view wx:if="{{selected === 1}}" class="tab-dot"></view>
+    </view>
+
+    <view class="tab-capture" bindtap="onCapture">
+      <text class="tab-capture-plus">+</text>
+    </view>
+
+    <view
+      class="tab-item {{selected === 2 ? 'tab-item-active' : ''}}"
+      data-index="2"
+      bindtap="switchTab"
+    >
+      <view class="tab-icon tab-icon-patterns {{selected === 2 ? 'tab-icon-active' : ''}}"></view>
+      <text class="tab-label">模式</text>
+      <view wx:if="{{selected === 2}}" class="tab-dot"></view>
+    </view>
+
+    <view
+      class="tab-item {{selected === 3 ? 'tab-item-active' : ''}}"
+      data-index="3"
+      bindtap="switchTab"
+    >
+      <view class="tab-icon tab-icon-self {{selected === 3 ? 'tab-icon-active' : ''}}"></view>
+      <text class="tab-label">我</text>
+      <view wx:if="{{selected === 3}}" class="tab-dot"></view>
+    </view>
+  </view>
+  <view class="tab-safe"></view>
+</view>

@@ -1,0 +1,49 @@
+<view class="page echoes-page">
+  <view class="page-header">
+    <view class="header-copy">
+      <text class="page-title">回声</text>
+      <text class="page-subtitle">最近反复出现的句子</text>
+    </view>
+    <view class="leaf-btn">
+      <view class="leaf-btn-mark"></view>
+    </view>
+  </view>
+
+  <view class="echo-list">
+    <view wx:for="{{echoClusters}}" wx:key="id" class="card echo-card">
+      <view class="card-decor card-decor-{{item.decor}}"></view>
+      <view class="echo-card-head">
+        <view class="icon-badge">
+          <view wx:if="{{item.icon === 'quote'}}" class="icon-quote"></view>
+          <view wx:elif="{{item.icon === 'sun'}}" class="icon-sun"></view>
+          <view wx:else class="icon-leaf-small"></view>
+        </view>
+        <view class="echo-head-text">
+          <view class="echo-title-row">
+            <text class="echo-card-title serif">{{item.title}}</text>
+            <text class="echo-card-time">{{item.updatedAt}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="echo-lines">
+        <view wx:for="{{item.items}}" wx:for-item="line" wx:key="text" class="echo-line">
+          <text class="echo-line-text">· {{line.text}}</text>
+          <text wx:if="{{line.time}}" class="echo-line-time">{{line.time}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="card resurface-card">
+      <view class="card-decor card-decor-moon"></view>
+      <view class="resurface-head">
+        <text class="resurface-title">{{echoResurface.title}}</text>
+        <text class="resurface-action">{{echoResurface.action}} ◇</text>
+      </view>
+      <text class="resurface-quote serif">{{echoResurface.quote}}</text>
+      <text class="resurface-caption">{{echoResurface.caption}}</text>
+      <text class="resurface-date">{{echoResurface.date}}</text>
+    </view>
+  </view>
+
+  <capture-sheet visible="{{captureVisible}}" bind:close="closeCapture" bind:save="saveMoment" />
+</view>

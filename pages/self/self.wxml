@@ -1,0 +1,81 @@
+<view class="page self-page">
+  <view class="page-header">
+    <text class="page-title">我</text>
+    <view class="leaf-btn">
+      <view class="leaf-btn-mark"></view>
+    </view>
+  </view>
+
+  <view class="card profile-card">
+    <view class="card-decor card-decor-leaves"></view>
+    <view class="profile-main">
+      <view class="profile-avatar">
+        <view class="avatar-landscape"></view>
+      </view>
+      <view class="profile-copy">
+        <text class="profile-name serif">Juan 的 Life OS</text>
+        <text class="profile-practice">你正在练习：清晰、稳定、少一点急</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card section-card">
+    <view class="card-decor card-decor-leaves"></view>
+    <view class="section-head">
+      <view class="icon-leaf-small"></view>
+      <text class="section-title">我的生活词汇</text>
+    </view>
+    <view class="tag-row">
+      <text wx:for="{{lifeWords}}" wx:key="*this" class="vocab-tag">{{item}}</text>
+    </view>
+  </view>
+
+  <view class="card section-card">
+    <view class="card-decor card-decor-lake"></view>
+    <view class="section-head">
+      <view class="section-icon-chart"></view>
+      <text class="section-title">最近的模式</text>
+    </view>
+    <text class="pattern-bullets">{{recentPatternsText}}</text>
+  </view>
+
+  <view class="card section-card">
+    <view class="card-decor card-decor-path"></view>
+    <view class="section-head">
+      <view class="section-icon-person"></view>
+      <text class="section-title">我想成为怎样的人</text>
+    </view>
+    <text class="aspiration-text">{{lifeAspiration}}</text>
+  </view>
+
+  <view class="card section-card">
+    <view class="section-head">
+      <view class="section-icon-pen"></view>
+      <text class="section-title">记录偏好</text>
+    </view>
+    <view class="pref-row">
+      <view wx:for="{{recordPrefs}}" wx:key="label" class="pref-item">
+        <view class="pref-icon pref-icon-{{item.icon}}"></view>
+        <text>{{item.label}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card fingerprint-card">
+    <view class="fingerprint-icon"></view>
+    <view class="fingerprint-copy">
+      <text class="section-title">我的生活指纹</text>
+      <text class="fingerprint-text">{{fingerprintText}}</text>
+    </view>
+  </view>
+
+  <view class="settings-list">
+    <view wx:for="{{settingsMenu}}" wx:key="label" class="settings-row">
+      <view class="settings-icon settings-icon-{{item.icon}}"></view>
+      <text>{{item.label}}</text>
+      <text class="settings-arrow">›</text>
+    </view>
+  </view>
+
+  <capture-sheet visible="{{captureVisible}}" bind:close="closeCapture" bind:save="saveMoment" />
+</view>

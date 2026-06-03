@@ -1,0 +1,43 @@
+<view class="page patterns-page">
+  <view class="page-header">
+    <view class="header-copy">
+      <text class="page-title">模式</text>
+      <view class="pattern-hint">
+        <text class="hint-icon">i</text>
+        <text class="page-subtitle inline">这些规律不是结论，只是线索</text>
+      </view>
+    </view>
+    <view class="leaf-btn">
+      <view class="leaf-btn-mark"></view>
+    </view>
+  </view>
+
+  <view class="pattern-list">
+    <view wx:for="{{patterns}}" wx:key="id" class="card pattern-card">
+      <view class="pattern-card-main">
+        <view class="pattern-icon pattern-icon-{{item.icon}}"></view>
+        <view class="pattern-copy">
+          <text class="pattern-statement serif">{{item.statement}}</text>
+          <text class="pattern-evidence">{{item.evidence}}</text>
+          <text class="pattern-link">查看依据 ></text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="pattern-return">
+    <text class="return-label">把这个模式带回今天</text>
+    <view class="card return-card">
+      <view class="return-icon-wrap">
+        <view class="icon-leaf-small"></view>
+      </view>
+      <view class="return-copy">
+        <text class="return-title">{{patternSuggestion.title}}</text>
+        <text class="return-body">{{patternSuggestion.body}}</text>
+      </view>
+      <view class="return-go">›</view>
+    </view>
+  </view>
+
+  <capture-sheet visible="{{captureVisible}}" bind:close="closeCapture" bind:save="saveMoment" />
+</view>
